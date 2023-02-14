@@ -1,8 +1,8 @@
 
-let postIdCounter = 2;
-let commentIdCounter = 6;
+let _postIdCounter = 2;
+let _commentIdCounter = 6;
 let comments = {};
-let posts = [
+const posts = [
   {
     text: "First post!",
     id: "p1",
@@ -30,10 +30,10 @@ const Tweeter = function () {
     return posts;
   };
   const createPost = (postContent) => {
-    postIdCounter += 1;
+    _postIdCounter += 1;
     let post = {
       text: postContent,
-      id: "p" + postIdCounter,
+      id: "p" + _postIdCounter,
       comments: [],
     };
     return post;
@@ -48,11 +48,11 @@ const Tweeter = function () {
     }
     return posts;
   }
-  const createComment = (postContent) => {
-    commentIdCounter += 1;
+  const createComment = (commentContent) => {
+    _commentIdCounter += 1;
     comment = {
-      id: "c" + commentIdCounter,
-      text: postContent,
+      id: "c" + _commentIdCounter,
+      text: commentContent,
     };
     return comment;
   };
@@ -79,10 +79,6 @@ const Tweeter = function () {
       return "error id"
     }
   }
-  const getCommentIdCounter = function(){
-    return commentIdCounter
-  }
-  
   return {
     getPosts: getPosts,
     addPost: addPost,
@@ -90,7 +86,6 @@ const Tweeter = function () {
     addComment, addComment,
     removeComment, removeComment,
     getComments ,getComments,
-    getCommentIdCounter,getCommentIdCounter
   };
 };
 

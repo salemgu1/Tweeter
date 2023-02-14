@@ -2,10 +2,7 @@ const element = $("#posts")
 const Renderer = function(){
     const renderPosts = function(posts){
         for(let post of posts){
-            console.log(post.id)
-            console.log(post.text)
             initPost(post)
-            // console.log(tweeter.getComments(id))
             let flag = "Enter your Comment"
             let flag1 = "text"
             let flag2 = "comment" + post.id

@@ -15,21 +15,17 @@ $("body").on("click", "#btn-post", function () {
         $('#input').val("")
     }
 });
+
 $("body").on("click", "#btn-comment", function () {
-    // let comment = $("#input-commint").val()
     let commentID = $(this).siblings("input").attr("id")
     let comment =document.getElementById(commentID).value;
     let post = commentID.replace('comment','');
     $("#posts").empty()
-    // if(comment===""){
-    //     alert("Empty Comment")
-    //     renderer.renderPosts(tweeter.getPosts())
-    // }
-    // else{
-        tweeter.addComment(comment,post)
-        renderer.renderPosts(tweeter.getPosts())
-    // }
+    tweeter.addComment(comment,post)
+    renderer.renderPosts(tweeter.getPosts())
+
 });
+
 $("#posts").on("click", ".delete-post", function () {
     const postId = $(this).parent().attr("id")
     console.log(postId)
@@ -37,6 +33,7 @@ $("#posts").on("click", ".delete-post", function () {
     tweeter.removePost(postId)
     renderer.renderPosts(tweeter.getPosts())   
 });
+
 $("#posts").on("click", ".delete-comment", function () {
     const postId = $(this).parent().parent().attr("id")
     const commentId = $(this).parent().attr("id")

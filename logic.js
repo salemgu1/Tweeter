@@ -29,6 +29,7 @@ const Tweeter = function () {
   const getPosts = function () {
     return posts;
   };
+
   const createPost = (postContent) => {
     _postIdCounter += 1;
     let post = {
@@ -38,16 +39,19 @@ const Tweeter = function () {
     };
     return post;
   };
+
   const addPost = function (text) {
     posts.push(createPost(text));
   };
-  function removePost(postID) {
+
+  const removePost = function (postID) {
     const post = posts.findIndex((obj) => obj.id === postID);
     if (post > -1) {
       posts.splice(post, 1);
     }
     return posts;
   }
+
   const createComment = (commentContent) => {
     _commentIdCounter += 1;
     comment = {
@@ -56,6 +60,7 @@ const Tweeter = function () {
     };
     return comment;
   };
+
   const addComment = function (text, postID) {
     const post = posts.findIndex((obj) => obj.id === postID);
     if(post>-1){
@@ -63,6 +68,7 @@ const Tweeter = function () {
     }
 
   };
+
   const removeComment = function(postID,commentID){
     const post = posts.findIndex((obj) => obj.id === postID);
     if(post>-1){
@@ -70,6 +76,7 @@ const Tweeter = function () {
         posts[post].comments.splice(comment, 1);
     }
   }
+
   const getComments = function(postID){
     const post = posts.findIndex((obj) => obj.id === postID);
     if(post>-1){
@@ -79,6 +86,7 @@ const Tweeter = function () {
       return "error id"
     }
   }
+  
   return {
     getPosts: getPosts,
     addPost: addPost,
